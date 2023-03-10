@@ -1,0 +1,9 @@
+!include https://raw.githubusercontent.com/johthor/DomainStory-PlantUML/main/domainStory.puml
+!include <office/Servers/application_server>
+!include <office/Servers/web_server>
+!unquoted procedure WebServer($name, $label = "", $color = "", $scale = "", $note = "")
+    Object("WebServer", "$web_server", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure AppServer($name, $label = "", $color = "", $scale = "", $note = "")
+    Object("AppServer", "$application_server", $name, $label, $color, $scale, $note)
+!endprocedure
