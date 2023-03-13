@@ -1,5 +1,7 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include ./osa_user_sprites.puml
+!include ./osa_misc_sprites.puml
+
 !global $DEFAULT_SCALE = 0.5
 !unquoted procedure Auditor($alias, $label="Auditor", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
     Person($alias, $label, $descr="", $sprite="osa_user_audit{scale=$spriteScale}", $tags="", $link="")
@@ -125,4 +127,18 @@
 !endprocedure
 !unquoted procedure Users_Ext($alias, $label="Users", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
     Person_Ext($alias, $label, $descr="", $sprite="osa_users_blue_green{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Cloud($alias, $label="Cloud", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    System($alias, $label, $descr="", $sprite="osa_cloud{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Cloud_Ext($alias, $label="Cloud", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    System_Ext($alias, $label, $descr="", $sprite="osa_cloud{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure System_Database($alias, $label="Database System", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    System($alias, $label, $descr="", $sprite="osa_database{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure System_Database_Ext($alias, $label="Database System", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    System_Ext($alias, $label, $descr="", $sprite="osa_database{scale=$spriteScale}", $tags="", $link="")
 !endprocedure
