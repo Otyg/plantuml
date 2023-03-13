@@ -1,0 +1,58 @@
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include ./osa_c4_system.puml
+!include ./osa_hardware_sprites.puml
+!unquoted procedure Server($alias, $label="Server", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Server_Ext($alias, $label="Server", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure AppServer($alias, $label="Application\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_application{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure AppServer_Ext($alias, $label="Application\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_application{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure DbServer($alias, $label="Database\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_database{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure DbServer_Ext($alias, $label="Database\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_database{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure FileServer($alias, $label="File\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_file{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure FileServer_Ext($alias, $label="File\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_file{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure IamServer($alias, $label="Identity\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_identity{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure IamServer_Ext($alias, $label="Identity\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_identity{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure MailServer($alias, $label="Mail\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_mail{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure MailServer_Ext($alias, $label="Mail\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_mail{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure WebServer($alias, $label="Web\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_web{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure WebServer_Ext($alias, $label="Web\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_web{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure ProxyServer($alias, $label="Proxy\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container($alias, $label, $descr="", $techn, $sprite="osa_server_proxy{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure ProxyServer_Ext($alias, $label="Proxy\nServer", $techn="", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Container_Ext($alias, $label, $descr="", $techn,$sprite="osa_server_proxy{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
