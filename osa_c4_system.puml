@@ -1,0 +1,128 @@
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include ./osa_user_sprites.puml
+!global $DEFAULT_SCALE = 0.5
+!unquoted procedure Auditor($alias, $label="Auditor", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_audit{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Auditor_Ext($alias, $label="Auditor", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_audit{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure ThreatAgent($alias, $label="Threat Agent", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_black_hat{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure ThreatAgent_Ext($alias, $label="Threat Agent", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_black_hat{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure SecuritySpecialist($alias, $label="Security Specialist", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_blue_security_specialist{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure SecuritySpecialist_Ext($alias, $label="Security Specialist", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_blue_security_specialist{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure SysAdmin($alias, $label="System Administrator", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_blue_sysadmin{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure SysAdmin_Ext($alias, $label="System Administrator", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_blue_sysadmin{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Tester($alias, $label="Tester", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_blue_tester{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Tester_Ext($alias, $label="Tester", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_blue_tester{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure UserTie($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_blue_tie{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure UserTie_Ext($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_blue_tie{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure User($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_blue{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure User_Ext($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_blue{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure User2($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure User2_Ext($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Architect($alias, $label="Architect", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_architect{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Architect_Ext($alias, $label="Architect", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_architect{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Business($alias, $label="Business Manager", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_business_manager{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Business_Ext($alias, $label="Business Manager", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_business_manager{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Developer($alias, $label="Developer", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_developer{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Developer_Ext($alias, $label="Developer", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_developer{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Operations($alias, $label="Operations", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_operations{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Operations_Ext($alias, $label="Operations", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_operations{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure ProjectManager($alias, $label="Project Manager", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_project_manager{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure ProjectManager_Ext($alias, $label="Project Manager", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_project_manager{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure ServiceManager($alias, $label="Service Manager", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_service_manager{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure ServiceManager_Ext($alias, $label="Service Manager", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_service_manager{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure UserWarning($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_green_warning{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure UserWarning_Ext($alias, $label="User", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_green_warning{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure LargeGroup($alias, $label="Users", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_large_group{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure LargeGroup_Ext($alias, $label="Users", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_large_group{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure SecurityTester($alias, $label="Security Tester", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_user_white_hat{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure SecurityTester_Ext($alias, $label="Security Tester", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_user_white_hat{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+
+!unquoted procedure Users($alias, $label="Users", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person($alias, $label, $descr="", $sprite="osa_users_blue_green{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
+!unquoted procedure Users_Ext($alias, $label="Users", $descr="", $spriteScale=$DEFAULT_SCALE, $tags="", $link="")
+    Person_Ext($alias, $label, $descr="", $sprite="osa_users_blue_green{scale=$spriteScale}", $tags="", $link="")
+!endprocedure
