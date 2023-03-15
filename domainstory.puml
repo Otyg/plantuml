@@ -1,9 +1,122 @@
 !include https://raw.githubusercontent.com/johthor/DomainStory-PlantUML/main/domainStory.puml
-!include <office/Servers/application_server>
-!include <office/Servers/web_server>
-!unquoted procedure WebServer($name, $label = "", $color = "", $scale = "", $note = "")
-    Object("WebServer", "$web_server", $name, $label, $color, $scale, $note)
+!include ./osa_hardware_sprites.puml
+!include ./osa_user_sprites.puml
+!include ./osa.puml
+!include ./ciscoSafe/threats.puml
+!global $DEFAULT_SCALE = 0.5
+!global $DEFAULT_CISCO_SCALE = 0.20
+!global $DEFAULT_THREAT_COLOR = "#red"
+
+'Infrastructure
+!unquoted procedure WebServer($name, $label = "Web Server", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("WebServer", "$osa_server_web", $name, $label, $color, $scale, $note)
 !endprocedure
-!unquoted procedure AppServer($name, $label = "", $color = "", $scale = "", $note = "")
-    Object("AppServer", "$application_server", $name, $label, $color, $scale, $note)
+!unquoted procedure AppServer($name, $label = "Application\nServer", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("AppServer", "$osa_server_application", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure DbServer($name, $label = "Database\nServer", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("DbServer", "$osa_server_database", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure MaliciousDevice($name, $label = "Malicious Device", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Actor("MaliciousDev", "$MaliciousDevice2", $name, $label, $color, $scale, $note)
+!endprocedure
+
+'Actors
+!unquoted procedure Auditor($name, $label = "Auditor", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("Auditor", "$osa_user_audit", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure SecuritySpecialist($name, $label = "Security Specialist", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("SecuritySpecialist", "$osa_user_blue_security_specialist", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure SysAdmin($name, $label = "System Administrator", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("SystemAdministrator", "$osa_user_blue_sysadmin", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Tester($name, $label="Tester", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("Tester", "$osa_user_blue_tester", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure User($name, $label="User", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("User", "$osa_user_blue", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure UserB($name, $label="User", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("UserB", "$osa_user_green", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Architect($name, $label="Architect", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("Architect", "$osa_user_green_architect", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Business($name, $label="Business Manager", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("Business", "$osa_user_green_business_manager", $name, $label, $color, $scale, $note)
+    Person($name, $label, $descr="", $sprite="osa_user_green_business_manager{scale=$scale}", $color="", $note="")
+!endprocedure
+!unquoted procedure Developer($name, $label="Developer", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("Developer", "$osa_user_green_developer", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Operations($name, $label="Operations", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("Operations", "$osa_user_green_operations", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure ProjectManager($name, $label="Project Manager", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("ProjectManager", "$osa_user_green_project_manager", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure ServiceManager($name, $label="Service Manager", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("ServiceManager", "$osa_user_green_service_manager", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure SecurityTester($name, $label="Security Tester", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("SecurityTester", "$osa_user_white_hat", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Users($name, $label="Users", $descr="", $scale=$DEFAULT_SCALE, $color="", $note="")
+    Actor("Users", "$osa_users_blue_green", $name, $label, $color, $scale, $note)
+!endprocedure
+
+'Threat Agents
+!unquoted procedure ThreatAgent($name, $label = "Threat Agent", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("ThreatAgent", "$osa_user_black_hat", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure ThreatAgentB($name, $label = "Threat Agent", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Actor("ThreatAgent", "$Rogue", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Botnet($name, $label = "Botnet", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Actor("Botnet", "$BotnetDdos", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Insider($name, $label = "Insider", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Actor("Insider", "$MaliciousInsider2", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure UnwittingThreatActor($name, $label = "Unwitting\nThreat Actor", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Actor("UnwittingThreatActor", "$UnwittingThreatActor", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure UserWarning($name, $label = "Untrusted\nUser", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_SCALE, $note = "")
+    Actor("UserWarning", "$osa_user_green_warning", $name, $label, $color, $scale, $note)
+!endprocedure
+
+' Workobjects
+!unquoted procedure Malware($name, $label = "Malware", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("Malware", "$Malware", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Credentials($name, $label = "Credentials", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Object("Credentials", "$osa_id_card", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Secure($name, $label = "authenticated", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Object("Secure", "$osa_padlock", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Exploit($name, $label = "Exploit\nCode", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("Exploit", "$Phising", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure PhisingMail($name, $label = "Phising Mail", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("PhisingMail", "$Phising2", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure SocialEngineering($name, $label = "Social Engineering", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("SocialEngineering", "$SocialEngineering", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Entice($name, $label = "entice", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("Entice", "$SocialEngineeringCarrot", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Lure($name, $label = "lure", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("Lure", "$SocialEngineeringPhising2", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Exfiltrate($name, $label = "Exfiltrate", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("Exfiltrate", "$SniffingExfiltration", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure MaliciousApp($name, $label = "Malicious\nApplication", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("MaliciousApp", "$antispam", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Mitm($name, $label = "Person In The Middle", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("MITM", "$PersonInTheMiddle", $name, $label, $color, $scale, $note)
 !endprocedure
