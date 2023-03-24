@@ -1,8 +1,9 @@
 !include https://raw.githubusercontent.com/johthor/DomainStory-PlantUML/main/domainStory.puml
-!include ./osa_hardware_sprites.puml
-!include ./osa_user_sprites.puml
-!include ./osa.puml
-!include ./ciscoSafe/threats.puml
+!define localRepo https://raw.githubusercontent.com/Otyg/plantuml/main/
+!include localRepo/osa_hardware_sprites.puml
+!include localRepo/osa_user_sprites.puml
+!include localRepo/osa.puml
+!include localRepo/ciscoSafe/threats.puml
 !global $DEFAULT_SCALE = 0.5
 !global $DEFAULT_CISCO_SCALE = 0.20
 !global $DEFAULT_THREAT_COLOR = "#red"
