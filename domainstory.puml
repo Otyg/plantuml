@@ -4,7 +4,7 @@
 !include localRepo/osa_user_sprites.puml
 !include localRepo/osa.puml
 !include localRepo/ciscoSafe/threats.puml
-!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/office/Servers/exchange_2013_client_access_server.puml
+!include <office/Servers/exchange_2013_client_access_server>
 !global $DEFAULT_SCALE = 0.5
 !global $DEFAULT_CISCO_SCALE = 0.20
 !global $DEFAULT_THREAT_COLOR = "#red"
