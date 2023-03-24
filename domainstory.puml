@@ -17,6 +17,9 @@
 !unquoted procedure DbServer($name, $label = "Database\nServer", $color = "", $scale = $DEFAULT_SCALE, $note = "")
     Actor("DbServer", "$osa_server_database", $name, $label, $color, $scale, $note)
 !endprocedure
+!unquoted procedure IDP($name, $label = "Identity\nProvider", $color = "", $scale = $DEFAULT_SCALE, $note = "")
+    Actor("IDP", "$osa_server_identity", $name, $label, $color, $scale, $note)
+!endprocedure
 !unquoted procedure MaliciousDevice($name, $label = "Malicious Device", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
     Actor("MaliciousDev", "$MaliciousDevice2", $name, $label, $color, $scale, $note)
 !endprocedure
@@ -119,4 +122,7 @@
 !endprocedure
 !unquoted procedure Mitm($name, $label = "Person In The Middle", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
     Object("MITM", "$PersonInTheMiddle", $name, $label, $color, $scale, $note)
+!endprocedure
+!unquoted procedure Redirect($name, $label = "Redirect", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+    Object("Redirect", "$ExploitRedirection", $name, $label, $color, $scale, $note)
 !endprocedure
