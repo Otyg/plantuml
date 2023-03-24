@@ -26,7 +26,7 @@
     Actor("MaliciousDev", "$MaliciousDevice2", $name, $label, $color, $scale, $note)
 !endprocedure
 !unquoted procedure OWA($name, $label = "Outlook Web\nApplication", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
-    Actor("MaliciousDev", "$exchange_2013_client_access_server", $name, $label, $color, $scale, $note)
+    Actor("OWA", "$exchange_2013_client_access_server", $name, $label, $color, $scale, $note)
 !endprocedure
 
 'Actors
