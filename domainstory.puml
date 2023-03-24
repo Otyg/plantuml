@@ -25,7 +25,7 @@
 !unquoted procedure MaliciousDevice($name, $label = "Malicious Device", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
     Actor("MaliciousDev", "$MaliciousDevice2", $name, $label, $color, $scale, $note)
 !endprocedure
-!unquoted procedure OWA($name, $label = "Outlook Web\nApplication", $color = $DEFAULT_THREAT_COLOR, $scale = $DEFAULT_CISCO_SCALE, $note = "")
+!unquoted procedure OWA($name, $label = "Outlook Web\nApplication", $color = "", $scale = $DEFAULT_SCALE, $note = "")
     Actor("OWA", "$exchange_2013_client_access_server", $name, $label, $color, $scale, $note)
 !endprocedure
 
