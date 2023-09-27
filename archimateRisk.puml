@@ -1,0 +1,94 @@
+@startuml meh
+!include <archimate/Archimate>
+!define Loss_Event(e_alias, e_label) archimate #BUSINESS "<<Loss Event>>\ne_label" <<business-event>> as e_alias
+!define Threat_Actor(e_alias, e_label) archimate #pink "<<Threat Actor>>\ne_label" <<business-actor>> as e_alias
+!define Threat_Agent(e_alias, e_label) archimate #pink "<<Threat Agent>>\ne_label" <<technology-device>> as e_alias
+!define Threat_Agent_Sw(e_alias, e_label) archimate #pink "<<Threat Agent>>\ne_label" <<technology-system-software>> as e_alias
+!define Threat_Event(e_alias, e_label) archimate #pink "<<Threat Event>>\ne_label" <<business-event>> as e_alias
+!define Risk(e_alias, e_label) archimate #red "<<Risk>>\ne_label" <<motivation-assessment>> as e_alias
+!define Vulnerability(e_alias, e_label) archimate #pink "<<Vulnerability>>\ne_label" <<motivation-constraint>> as e_alias
+!define Control_Objective(e_alias, e_label) archimate #MOTIVATION "<<Control Objective>>\ne_label" <<motivation-goal>> as e_alias
+!define Security_Requirement(e_alias, e_label) archimate #GreenYellow "<<Requirement>>\ne_label" <<motivation-requirement>> as e_alias
+!define Control_Measure(e_alias, e_label) archimate #Gold "<<Control Measure>>\ne_label" <<motivation-requirement>> as e_alias
+!define Security_Policy(e_alias, e_label) archimate #Gold "<<Security Policy>>\ne_label" <<motivation-principle>> as e_alias
+!define Security_Objective(e_alias, e_label) archimate #MOTIVATION "<<Security Objective>>\ne_label" <<motivation-driver>> as e_alias
+!define Impact(e_alias, e_label) archimate #pink "<<Impact>>\ne_label" <<motivation-assessment>> as e_alias
+!define Threat(e_alias, e_label) archimate #pink "<<Threat>>\ne_label" <<motivation-constraint>> as e_alias
+!define Risk_Treatment(e_alias, e_label) archimate #MOTIVATION "<<Risk Treatment>>\ne_label" <<motivation-goal>> as e_alias
+
+!define Impact_ReduceReliability(e_alias) Impact(e_alias, "Reduce Reliability")
+!define Impact_ReadFilesorDirectories(e_alias) Impact(e_alias, "Read Files or Directories")
+!define Impact_DoSCrashExitorRestart(e_alias) Impact(e_alias, "DoS: Crash, Exit, or Restart")
+!define Impact_ModifyFilesorDirectories(e_alias) Impact(e_alias, "Modify Files or Directories")
+!define Impact_DoSResourceConsumptionCPU(e_alias) Impact(e_alias, "DoS: Resource Consumption (CPU)")
+!define Impact_ReducePerformance(e_alias) Impact(e_alias, "Reduce Performance")
+!define Impact_QualityDegradation(e_alias) Impact(e_alias, "Quality Degradation")
+!define Impact_DoSInstability(e_alias) Impact(e_alias, "DoS: Instability")
+!define Impact_UnexpectedState(e_alias) Impact(e_alias, "Unexpected State")
+!define Impact_DoSAmplification(e_alias) Impact(e_alias, "DoS: Amplification")
+!define Impact_ReadMemory(e_alias) Impact(e_alias, "Read Memory")
+!define Impact_ModifyApplicationData(e_alias) Impact(e_alias, "Modify Application Data")
+!define Impact_ExecuteUnauthorizedCodeorCommands(e_alias) Impact(e_alias, "Execute Unauthorized Code or Commands")
+!define Impact_ModifyMemory(e_alias) Impact(e_alias, "Modify Memory")
+!define Impact_HideActivities(e_alias) Impact(e_alias, "Hide Activities")
+!define Impact_ReadApplicationData(e_alias) Impact(e_alias, "Read Application Data")
+!define Impact_BypassProtectionMechanism(e_alias) Impact(e_alias, "Bypass Protection Mechanism")
+!define Impact_ReduceMaintainability(e_alias) Impact(e_alias, "Reduce Maintainability")
+!define Impact_DoSResourceConsumptionMemory(e_alias) Impact(e_alias, "DoS: Resource Consumption (Memory)")
+!define Impact_AlterExecutionLogic(e_alias) Impact(e_alias, "Alter Execution Logic")
+!define Impact_DoSResourceConsumptionOther(e_alias) Impact(e_alias, "DoS: Resource Consumption (Other)")
+!define Impact_GainPrivilegesorAssumeIdentity(e_alias) Impact(e_alias, "Gain Privileges or Assume Identity")
+
+!define Threat_Spoofing(e_alias) Threat(e_alias, "Spoofing")
+!define Threat_Tampering(e_alias) Threat(e_alias, "Tampering")
+!define Threat_Repudiation(e_alias) Threat(e_alias, "Repudiation")
+!define Threat_InformationDisclosure(e_alias) Threat(e_alias, "Information Disclosure")
+!define Threat_DenialofService(e_alias) Threat(e_alias, "Denial of Service")
+!define Threat_ElevationofPrivilege(e_alias) Threat(e_alias, "Elevation of Privilege")
+!define Threat_Linking(e_alias) Threat(e_alias, "Linking")
+!define Threat_Identifying(e_alias) Threat(e_alias, "Identifying")
+!define Threat_NonRepudiation(e_alias) Threat(e_alias, "Non-Repudiation")
+!define Threat_Detecting(e_alias) Threat(e_alias, "Detecting")
+!define Threat_UnawarenessUnintervenability(e_alias) Threat(e_alias, "Unawareness &\nUnintervenability")
+!define Threat_NonCompliance(e_alias) Threat(e_alias, "Non-Compliance")
+
+!define Vuln_UseofHardcodedCredentials(e_alias) Vulnerability(e_alias, "Use of Hard-coded Credentials")
+!define Vuln_ImproperControlofGenerationofCodeCodeInjection(e_alias) Vulnerability(e_alias, "Improper Control of Generation of Code ('Code Injection')")
+!define Vuln_UseofWeakCredentials(e_alias) Vulnerability(e_alias, "Use of Weak Credentials")
+!define Vuln_ImproperAuthentication(e_alias) Vulnerability(e_alias, "Improper Authentication")
+!define Vuln_UseAfterFree(e_alias) Vulnerability(e_alias, "Use After Free")
+!define Vuln_ExternallyControlledReferencetoaResourceinAnotherSphere(e_alias) Vulnerability(e_alias, "Externally Controlled Reference to a Resource in Another Sphere")
+!define Vuln_UnrestrictedUploadofFilewithDangerousType(e_alias) Vulnerability(e_alias, "Unrestricted Upload of File with Dangerous Type")
+!define Vuln_ExposureofResourcetoWrongSphere(e_alias) Vulnerability(e_alias, "Exposure of Resource to Wrong Sphere")
+!define Vuln_OutofboundsWrite(e_alias) Vulnerability(e_alias, "Out-of-bounds Write")
+!define Vuln_OutofboundsRead(e_alias) Vulnerability(e_alias, "Out-of-bounds Read")
+!define Vuln_NULLPointerDereference(e_alias) Vulnerability(e_alias, "NULL Pointer Dereference")
+!define Vuln_ImproperControlofDynamicallyManagedCodeResources(e_alias) Vulnerability(e_alias, "Improper Control of Dynamically-Managed Code Resources")
+!define Vuln_ImproperNeutralizationofInputDuringWebPageGenerationCrosssiteScripting(e_alias) Vulnerability(e_alias, "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')")
+!define Vuln_CrossSiteRequestForgeryCSRF(e_alias) Vulnerability(e_alias, "Cross-Site Request Forgery (CSRF)")
+!define Vuln_UseofIncorrectlyResolvedNameorReference(e_alias) Vulnerability(e_alias, "Use of Incorrectly-Resolved Name or Reference")
+!define Vuln_ImproperInputValidation(e_alias) Vulnerability(e_alias, "Improper Input Validation")
+!define Vuln_LackofAdministratorControloverSecurity(e_alias) Vulnerability(e_alias, "Lack of Administrator Control over Security")
+!define Vuln_IncorrectResourceTransferBetweenSpheres(e_alias) Vulnerability(e_alias, "Incorrect Resource Transfer Between Spheres")
+!define Vuln_ImproperLimitationofaPathnametoaRestrictedDirectoryPathTraversal(e_alias) Vulnerability(e_alias, "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')")
+!define Vuln_ImproperNeutralizationofSpecialElementsusedinaCommandCommandInjection(e_alias) Vulnerability(e_alias, "Improper Neutralization of Special Elements used in a Command ('Command Injection')")
+!define Vuln_IncorrectPermissionAssignmentforCriticalResource(e_alias) Vulnerability(e_alias, "Incorrect Permission Assignment for Critical Resource")
+!define Vuln_ImproperNeutralizationofSpecialElementsusedinanOSCommandOSCommandInjection(e_alias) Vulnerability(e_alias, "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')")
+!define Vuln_ImproperNeutralizationofSpecialElementsusedinanSQLCommandSQLInjection(e_alias) Vulnerability(e_alias, "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')")
+!define Vuln_ImproperPrivilegeManagement(e_alias) Vulnerability(e_alias, "Improper Privilege Management")
+!define Vuln_IntegerOverfloworWraparound(e_alias) Vulnerability(e_alias, "Integer Overflow or Wraparound")
+!define Vuln_ServerSideRequestForgerySSRF(e_alias) Vulnerability(e_alias, "Server-Side Request Forgery (SSRF)")
+!define Vuln_ImproperNeutralizationofSpecialElementsinOutputUsedbyaDownstreamComponentInjection(e_alias) Vulnerability(e_alias, "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')")
+!define Vuln_ImproperRestrictionofOperationswithintheBoundsofaMemoryBuffer(e_alias) Vulnerability(e_alias, "Improper Restriction of Operations within the Bounds of a Memory Buffer")
+!define Vuln_UnintendedProxyorIntermediaryConfusedDeputy(e_alias) Vulnerability(e_alias, "Unintended Proxy or Intermediary ('Confused Deputy')")
+!define Vuln_InsufficientVerificationofDataAuthenticity(e_alias) Vulnerability(e_alias, "Insufficient Verification of Data Authenticity")
+!define Vuln_DeserializationofUntrustedData(e_alias) Vulnerability(e_alias, "Deserialization of Untrusted Data")
+!define Vuln_ConcurrentExecutionusingSharedResourcewithImproperSynchronizationRaceCondition(e_alias) Vulnerability(e_alias, "Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')")
+!define Vuln_IncorrectDefaultPermissions(e_alias) Vulnerability(e_alias, "Incorrect Default Permissions")
+!define Vuln_OperationonaResourceafterExpirationorRelease(e_alias) Vulnerability(e_alias, "Operation on a Resource after Expiration or Release")
+!define Vuln_MissingAuthorization(e_alias) Vulnerability(e_alias, "Missing Authorization")
+!define Vuln_MissingAuthenticationforCriticalFunction(e_alias) Vulnerability(e_alias, "Missing Authentication for Critical Function")
+!define Vuln_IncorrectAuthorization(e_alias) Vulnerability(e_alias, "Incorrect Authorization")
+!define Vuln_ImproperCheckforUnusualorExceptionalConditions(e_alias) Vulnerability(e_alias, "Improper Check for Unusual or Exceptional Conditions")
+!define Vuln_ImproperNeutralizationofSpecialElementsinDataQueryLogic(e_alias) Vulnerability(e_alias, "Improper Neutralization of Special Elements in Data Query Logic")
+@enduml

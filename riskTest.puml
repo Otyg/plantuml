@@ -1,0 +1,141 @@
+@startuml Archimate Risk Analysis
+!include ./archimateRisk.puml
+left to right direction
+Group(predef, "Predefined") {
+    Group(threats, "Threats") {
+        Threat_Spoofing(threat25)
+        Threat_Tampering(threat26)
+        Threat_Repudiation(threat27)
+        Threat_InformationDisclosure(threat28)
+        Threat_DenialofService(threat29)
+        Threat_ElevationofPrivilege(threat30)
+        Threat_Linking(threat31)
+        Threat_Identifying(threat32)
+        Threat_NonRepudiation(threat33)
+        Threat_Detecting(threat34)
+        Threat_UnawarenessUnintervenability(threat35)
+        Threat_NonCompliance(threat36)
+    }
+    Group(impacts, "Impacts CWE") {
+        Impact_ReadMemory(impact1)
+        Impact_DoSInstability(impact2)
+        Impact_ModifyMemory(impact3)
+        Impact_DoSResourceConsumptionCPU(impact4)
+        Impact_DoSCrashExitorRestart(impact5)
+        Impact_ModifyApplicationData(impact7)
+        Impact_ExecuteUnauthorizedCodeorCommands(impact8)
+        Impact_QualityDegradation(impact9)
+        Impact_ReducePerformance(impact11)
+        Impact_DoSResourceConsumptionOther(impact12)
+        Impact_AlterExecutionLogic(impact13)
+        Impact_DoSAmplification(impact14)
+        Impact_DoSResourceConsumptionMemory(impact15)
+        Impact_GainPrivilegesorAssumeIdentity(impact16)
+        Impact_ReadApplicationData(impact17)
+        Impact_ReadFilesorDirectories(impact18)
+        Impact_BypassProtectionMechanism(impact19)
+        Impact_ReduceReliability(impact20)
+        Impact_HideActivities(impact21)
+        Impact_ModifyFilesorDirectories(impact22)
+        Impact_ReduceMaintainability(impact23)
+        Impact_UnexpectedState(impact24)
+    }
+    Group(vulnerabilities, "Vulnerabilities") {
+        Vuln_UseofHardcodedCredentials(vuln0)
+        Vuln_ImproperControlofGenerationofCodeCodeInjection(vuln1)
+        Vuln_UseofWeakCredentials(vuln2)
+        Vuln_ImproperAuthentication(vuln3)c
+        Vuln_UseAfterFree(vuln4)
+        Vuln_ExternallyControlledReferencetoaResourceinAnotherSphere(vuln5)
+        Vuln_UnrestrictedUploadofFilewithDangerousType(vuln6)
+        Vuln_ExposureofResourcetoWrongSphere(vuln7)
+        Vuln_OutofboundsWrite(vuln8)
+        Vuln_OutofboundsRead(vuln9)
+        Vuln_NULLPointerDereference(vuln10)
+        Vuln_ImproperControlofDynamicallyManagedCodeResources(vuln11)
+        Vuln_ImproperNeutralizationofInputDuringWebPageGenerationCrosssiteScripting(vuln12)
+        Vuln_CrossSiteRequestForgeryCSRF(vuln13)
+        Vuln_UseofIncorrectlyResolvedNameorReference(vuln14)
+        Vuln_ImproperInputValidation(vuln15)
+        Vuln_LackofAdministratorControloverSecurity(vuln16)
+        Vuln_IncorrectResourceTransferBetweenSpheres(vuln17)
+        Vuln_ImproperLimitationofaPathnametoaRestrictedDirectoryPathTraversal(vuln18)
+        Vuln_ImproperNeutralizationofSpecialElementsusedinaCommandCommandInjection(vuln19)
+        Vuln_IncorrectPermissionAssignmentforCriticalResource(vuln20)
+        Vuln_ImproperNeutralizationofSpecialElementsusedinanOSCommandOSCommandInjection(vuln21)
+        Vuln_ImproperNeutralizationofSpecialElementsusedinanSQLCommandSQLInjection(vuln22)
+        Vuln_ImproperPrivilegeManagement(vuln23)
+        Vuln_IntegerOverfloworWraparound(vuln24)
+        Vuln_ServerSideRequestForgerySSRF(vuln25)
+        Vuln_ImproperNeutralizationofSpecialElementsinOutputUsedbyaDownstreamComponentInjection(vuln26)
+        Vuln_ImproperRestrictionofOperationswithintheBoundsofaMemoryBuffer(vuln27)
+        Vuln_UnintendedProxyorIntermediaryConfusedDeputy(vuln28)
+        Vuln_InsufficientVerificationofDataAuthenticity(vuln29)
+        Vuln_DeserializationofUntrustedData(vuln30)
+        Vuln_ConcurrentExecutionusingSharedResourcewithImproperSynchronizationRaceCondition(vuln31)
+        Vuln_IncorrectDefaultPermissions(vuln32)
+        Vuln_OperationonaResourceafterExpirationorRelease(vuln33)
+        Vuln_MissingAuthorization(vuln34)
+        Vuln_MissingAuthenticationforCriticalFunction(vuln35)
+        Vuln_IncorrectAuthorization(vuln36)
+        Vuln_ImproperCheckforUnusualorExceptionalConditions(vuln37)
+        Vuln_ImproperNeutralizationofSpecialElementsinDataQueryLogic(vuln38)
+    }
+}
+
+
+Group(ex, "Example") {
+    Security_Objective(objA, "Only verified artifacts\nin production")
+
+    Group(assets, "Assets at Risk") {
+        Technology_Artifact(artifact, "Release Artifact")
+    }
+
+    Group(te, "Risk Breakdown"){
+        Impact_ModifyFilesorDirectories(integrity)
+        Rel_Influence(integrity, objA, "negates")
+        Threat(tampering, "Tampering")
+        Threat_Actor(taInt, "Internal")
+        Threat_Actor(taExt, "External")
+        Rel_Assignment(taInt, tampering)
+        Rel_Assignment(taExt, tampering)
+        Junction_And(tamperingJ, "and")
+        Junction_Or(vulnJ, "or")
+        Rel_Triggering(tamperingJ, integrity, "Cause")
+        vulnJ -- tamperingJ
+        tampering -- tamperingJ
+        Vuln_IncorrectAuthorization(A01)
+        Vulnerability(A02, "Cryptographic Failures")
+        Vuln_ImproperAuthentication(A07)
+        Vulnerability(A08, "Software and Data\nIntegrity Failures")
+        Vulnerability(A09, "Security Monitoring\nand Logging Failures")
+        A01 -- vulnJ
+        A02 -- vulnJ
+        A07 -- vulnJ
+        A08 -- vulnJ
+        A09 -- vulnJ
+    }
+
+    Risk(risk1, "R1\n Manipulation of\nArtifacts")
+    Risk_Treatment(rt1, "Only authorized\nchanges to artifacts")
+    Security_Policy(secpol, "Policy XYZ")
+    Rel_Realization(te, risk1, "Realize")
+    Rel_Realization(rt1, secpol, "Implements")
+    Rel_Association(risk1, objA)
+    Rel_Influence(risk1, artifact)
+    Rel_Influence(rt1, risk1, "Mitigates")
+
+    Security_Requirement(cr, "Mandatory Code Review\nWith Required Approval")
+    Security_Requirement(mfa, "Multifactor Authentication")
+    Security_Requirement(rbac, "Role Based Access")
+    Rel_Influence(cr, A08)
+    Rel_Influence(cr, A09)
+    Rel_Influence(mfa, A07)
+    Rel_Influence(rbac, A01)
+    Rel_Association(mfa, rbac)
+    Rel_Association(rbac, cr)
+    Rel_Realization(cr, rt1)
+    Rel_Influence(mfa, taExt)
+}
+
+@enduml
