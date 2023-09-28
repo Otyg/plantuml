@@ -9,6 +9,7 @@
 !define Vulnerability(e_alias, e_label) archimate #pink "<<Vulnerability>>\ne_label" <<motivation-constraint>> as e_alias
 !define Control_Objective(e_alias, e_label) archimate #MOTIVATION "<<Control Objective>>\ne_label" <<motivation-goal>> as e_alias
 !define Security_Requirement(e_alias, e_label) archimate #GreenYellow "<<Requirement>>\ne_label" <<motivation-requirement>> as e_alias
+!define Security_Verification(e_alias, e_label) archimate #GreenYellow "<<Verification>>\ne_label" <<motivation-assessment>> as e_alias
 !define Control_Measure(e_alias, e_label) archimate #Gold "<<Control Measure>>\ne_label" <<motivation-requirement>> as e_alias
 !define Security_Policy(e_alias, e_label) archimate #Gold "<<Security Policy>>\ne_label" <<motivation-principle>> as e_alias
 !define Security_Objective(e_alias, e_label) archimate #MOTIVATION "<<Security Objective>>\ne_label" <<motivation-driver>> as e_alias

@@ -136,6 +136,11 @@ Group(ex, "Example") {
     Rel_Association(rbac, cr)
     Rel_Realization(cr, rt1)
     Rel_Influence(mfa, taExt)
+
+    Security_Policy(asvs, "Application Security Verification Standard")
+    Security_Verification(asvsV2, "V2 Authentication")
+    Rel_Realization(asvsV2, asvs)
+    Rel_Assignment(asvsV2, mfa)
 }
 
 @enduml
